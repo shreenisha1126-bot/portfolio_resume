@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shree Nisha's personal portfolio">
+  <title>Shree Nisha | Portfolio</title>
+  <style>
+    :root{--purple:#7c3aed;--purple-dark:#5b21b6;--lavender:#c4b5fd;--light:#f9f7ff;--ink:#171333;--muted:#66617d;--border:#e9e2fa;--white:#fff}
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:80px}
+    body{font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--white);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1100px,90%);margin:auto}
+    header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);border-bottom:1px solid var(--border)}
+    nav{min-height:66px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+    .logo{font-size:23px;font-weight:800;letter-spacing:-1px}
+    .logo span{color:var(--purple)}
+    .nav-links{display:flex;gap:28px;align-items:center}
+    .nav-links a{color:var(--muted);font-size:14px;transition:color .2s}
+    .nav-links a:hover{color:var(--purple)}
+    .menu-toggle{display:none;background:white;border:1px solid var(--border);padding:7px 11px;border-radius:8px;color:var(--purple);font-size:20px;cursor:pointer}
+    .hero{min-height:380px;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(110deg,#f9f7ff,#fff 65%,#eee7ff)}
+    .hero-content{position:relative;z-index:2;padding-top:65px;padding-bottom:65px}
+    .eyebrow{color:var(--purple);font-size:11px;font-weight:bold;letter-spacing:3px;margin-bottom:12px}
+    h1{font-size:clamp(42px,6vw,65px);line-height:1.08;letter-spacing:-2px;margin-bottom:10px}
+    h1 span,.section-title span{color:var(--purple)}
+    .hero h2{font-size:clamp(19px,3vw,25px);font-weight:500;margin-bottom:14px}
+    .hero-description{color:var(--muted);max-width:490px;margin-bottom:23px}
+    .buttons{display:flex;flex-wrap:wrap;gap:12px}
+    .button{display:inline-block;padding:11px 21px;border-radius:9px;border:1px solid var(--purple);font-size:14px;transition:.2s}
+    .button.primary{background:var(--purple);color:white}
+    .button.primary:hover{background:var(--purple-dark);transform:translateY(-2px)}
+    .button.secondary{color:var(--purple);background:white}
+    .button.secondary:hover{background:var(--light)}
+    .student-note{margin-top:23px;color:var(--muted);font-size:13px}
+    .student-note span{display:inline-block;width:9px;height:9px;background:var(--purple);border-radius:50%;margin-right:10px}
+    .hero-shape{position:absolute;pointer-events:none;background:linear-gradient(140deg,#e8ddff,#d5c4ff);opacity:.72}
+    .shape-one{width:330px;height:210px;right:-65px;top:-55px;border-radius:48% 52% 67% 33%;transform:rotate(-18deg)}
+    .shape-two{width:350px;height:150px;right:5%;bottom:-85px;border-radius:50%;transform:rotate(-15deg);opacity:.5}
+    .shape-three{width:17px;height:17px;right:35%;top:24%;border-radius:50%;background:var(--lavender)}
+    section.content-section{padding:65px 0}
+    .section-title{font-size:clamp(29px,4vw,38px);line-height:1.2;margin-bottom:15px;letter-spacing:-1px}
+    .section-description{color:var(--muted);max-width:700px}
+    .about-section{background:white}
+    .skills-section,.contact-section{background:var(--light)}
+    .skills-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-top:27px}
+    .skill-card{text-align:center;padding:22px 10px;border:1px solid var(--border);border-radius:14px;background:white;transition:transform .2s,box-shadow .2s}
+    .skill-card:hover{transform:translateY(-4px);box-shadow:0 10px 25px rgba(91,33,182,.08)}
+    .skill-icon{width:48px;height:48px;margin:0 auto 12px;display:grid;place-items:center;background:#f0eaff;color:var(--purple);border-radius:13px;font-weight:bold;font-size:16px}
+    .skill-card h3{font-size:15px;margin-bottom:4px}
+    .skill-card p{color:var(--muted);font-size:12px}
+    .learning-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:13px;margin-top:25px}
+    .learning-card{padding:22px 15px;text-align:center;border:1px solid var(--border);border-radius:14px;background:white}
+    .learning-card.education{text-align:left;background:var(--light)}
+    .learning-icon{font-size:25px;color:var(--purple);margin-bottom:9px}
+    .learning-card h3{font-size:15px;margin-bottom:5px}
+    .learning-card p{font-size:13px;color:var(--muted)}
+    .small-note{color:var(--muted);font-size:12px;margin-top:14px}
+    .contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:24px}
+    .contact-card{display:flex;align-items:center;gap:13px;padding:19px;border:1px solid var(--border);border-radius:14px;background:white;min-width:0}
+    .contact-icon{flex-shrink:0;width:43px;height:43px;display:grid;place-items:center;border-radius:50%;background:#eee7ff;color:var(--purple);font-size:21px}
+    .contact-info{flex:1;min-width:0}
+    .contact-info p{color:var(--muted);font-size:12px}
+    .contact-info a{color:var(--purple);font-size:13px;font-weight:bold;overflow-wrap:anywhere}
+    .copy-button{flex-shrink:0;border:1px solid var(--lavender);background:white;color:var(--purple);padding:7px 10px;border-radius:7px;cursor:pointer;font-size:12px}
+    .copy-button:hover{background:var(--light)}
+    .privacy-note{color:var(--muted);font-size:12px;margin-top:16px}
+    footer{padding:24px 0;background:white;border-top:1px solid var(--border)}
+    .footer-content{display:flex;align-items:center;justify-content:space-between;gap:15px}
+    .footer-content p{color:var(--muted);font-size:12px}
+    .toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,20px);background:#302044;color:white;padding:10px 17px;border-radius:9px;font-size:13px;opacity:0;pointer-events:none;transition:.2s;z-index:200}
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+    @media(max-width:800px){
+      .skills-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .learning-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .menu-toggle{display:block}
+      nav{position:relative}
+      .nav-links{display:none;position:absolute;top:100%;left:-5.5%;right:-5.5%;padding:12px 5%;background:white;border-bottom:1px solid var(--border);flex-direction:column;align-items:flex-start;gap:0}
+      .nav-links.open{display:flex}
+      .nav-links a{padding:10px 0;width:100%}
+      .shape-one{right:-170px;opacity:.4}
+    }
+    @media(max-width:520px){
+      .hero-content{padding-top:55px;padding-bottom:55px}
+      section.content-section{padding:48px 0}
+      .contact-grid{grid-template-columns:1fr}
+      .learning-card{padding:17px 10px}
+      .contact-card{padding:13px;gap:9px}
+      .copy-button{padding:6px 7px}
+      .footer-content{flex-wrap:wrap}
+      .footer-content p:last-child{width:100%}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a class="logo" href="#home">Shree Nisha<span>.</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-shape shape-one"></div><div class="hero-shape shape-two"></div><div class="hero-shape shape-three"></div>
+      <div class="container hero-content">
+        <p class="eyebrow">HELLO, WELCOME TO MY PORTFOLIO</p>
+        <h1>Hi, I'm<br><span>Shree Nisha</span></h1>
+        <h2>B.Sc. Computer Science Student</h2>
+        <p class="hero-description">I'm learning programming and web development, exploring new technologies, and building my skills step by step.</p>
+        <div class="buttons">
+          <a class="button primary" href="#skills">Explore My Skills&nbsp; →</a>
+          <a class="button secondary" href="#contact">Contact Me</a>
+        </div>
+        <p class="student-note"><span></span>Student at KG College of Arts and Science</p>
+      </div>
+    </section>
+
+    <section class="content-section about-section" id="about">
+      <div class="container">
+        <p class="eyebrow">A LITTLE ABOUT ME</p>
+        <h2 class="section-title">About <span>Me</span></h2>
+        <p class="section-description">I am a B.Sc. Computer Science student at KG College of Arts and Science. I have basic knowledge of Python, C, C++, and Java, along with HTML, CSS, and JavaScript. I enjoy learning about technology and improving my programming skills.</p>
+      </div>
+    </section>
+
+    <section class="content-section skills-section" id="skills">
+      <div class="container">
+        <p class="eyebrow">WHAT I'M LEARNING</p>
+        <h2 class="section-title">Technical <span>Skills</span></h2>
+        <p class="section-description">Technologies and programming languages I have started learning.</p>
+        <div class="skills-grid">
+          <article class="skill-card"><div class="skill-icon">Py</div><h3>Python</h3><p>Basic knowledge</p></article>
+          <article class="skill-card"><div class="skill-icon">C</div><h3>C</h3><p>Basic knowledge</p></article>
+          <article class="skill-card"><div class="skill-icon">C++</div><h3>C++</h3><p>Basic knowledge</p></article>
+          <article class="skill-card"><div class="skill-icon">J</div><h3>Java</h3><p>Basic knowledge</p></article>
+          <article class="skill-card"><div class="skill-icon">&lt;/&gt;</div><h3>HTML</h3><p>Web development</p></article>
+          <article class="skill-card"><div class="skill-icon">#</div><h3>CSS</h3><p>Web styling</p></article>
+          <article class="skill-card"><div class="skill-icon">JS</div><h3>JavaScript</h3><p>Web interactivity</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="education">
+      <div class="container">
+        <p class="eyebrow">EDUCATION & COURSES</p>
+        <h2 class="section-title">Education & <span>Learning</span></h2>
+        <div class="learning-grid">
+          <article class="learning-card education"><div class="learning-icon">🎓</div><h3>B.Sc. Computer Science</h3><p>KG College of Arts and Science</p></article>
+          <article class="learning-card"><div class="learning-icon">📘</div><h3>Coursera</h3><p>Completed courses</p></article>
+          <article class="learning-card"><div class="learning-icon">🍃</div><h3>MongoDB</h3><p>Completed course(s)</p></article>
+          <article class="learning-card"><div class="learning-icon">📄</div><h3>NPTEL</h3><p>Completed an NPTEL examination</p></article>
+        </div>
+        <p class="small-note">Specific course titles and examination results can be added later.</p>
+      </div>
+    </section>
+
+    <section class="content-section contact-section" id="contact">
+      <div class="container">
+        <p class="eyebrow">LET'S CONNECT</p>
+        <h2 class="section-title">Contact <span>Me</span></h2>
+        <p class="section-description">Feel free to contact me by email or WhatsApp.</p>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="contact-icon">✉</div>
+            <div class="contact-info"><p>Email</p><a href="mailto:shreenisha1126@gmail.com">shreenisha1126@gmail.com</a></div>
+            <button class="copy-button" data-copy="shreenisha1126@gmail.com">Copy</button>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">☏</div>
+            <div class="contact-info"><p>WhatsApp</p><a href="https://wa.me/918807558108" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a><p>8807558108</p></div>
+            <button class="copy-button" data-copy="8807558108">Copy</button>
+          </div>
+        </div>
+        <p class="privacy-note">Contact details are public on this website. Publish it only if Shree Nisha is comfortable sharing them online.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div><a class="logo" href="#home">Shree Nisha<span>.</span></a><p>Personal portfolio</p></div>
+      <p>© <span id="year"></span> Shree Nisha</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuToggle.textContent = open ? "✕" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const toast = document.getElementById("toast");
+    let toastTimer;
+
+    document.querySelectorAll("[data-copy]").forEach(button => {
+      button.addEventListener("click", async () => {
+        const text = button.dataset.copy;
+        try {
+          await navigator.clipboard.writeText(text);
+          showToast("Copied to clipboard!");
+        } catch {
+          showToast("Copy manually: " + text);
+        }
+      });
+    });
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+Project inventory
+=================
+
+index.html
+  Complete website source: HTML + CSS + JavaScript in one file.
+
+README.md
+  How to run, edit, and publish the website; project structure and asset notes.
+
+assets/README.md
+  Explains which assets are used and whether images are loaded by the website.
+
+assets/design-reference.png
+  Optional visual reference image only; not used by the website itself.
