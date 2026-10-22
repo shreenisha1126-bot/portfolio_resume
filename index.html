@@ -40,7 +40,7 @@
     .shape-one{width:330px;height:210px;right:-65px;top:-55px;border-radius:48% 52% 67% 33%;transform:rotate(-18deg)}
     .shape-two{width:350px;height:150px;right:5%;bottom:-85px;border-radius:50%;transform:rotate(-15deg);opacity:.5}
     .shape-three{width:17px;height:17px;right:35%;top:24%;border-radius:50%;background:var(--lavender)}
-    .profile-photo-frame{position:absolute;z-index:1;top:50%;right:max(calc((100% - 1100px)/2),5%);width:clamp(180px,25vw,280px);aspect-ratio:4/5;transform:translateY(-50%);overflow:hidden;border:8px solid white;border-radius:48% 48% 24px 24px;background:#f0eaff;box-shadow:0 16px 40px rgba(91,33,182,.16)}
+    .profile-photo-frame{position:absolute;z-index:1;top:50%;right:max(calc((100% - 1100px)/2),5%);width:clamp(180px,25vw,280px);aspect-ratio:4/5;transform:translateY(-50%);overflow:hidden;border:8px solid rgba(255,255,255,.9);border-radius:28px;box-shadow:0 20px 40px rgba(124,58,237,.12);background:linear-gradient(180deg,#f3ebff,#e6d9ff)}
     .profile-photo-frame img{width:100%;height:100%;display:block;object-fit:cover;object-position:center 20%}
     section.content-section{padding:65px 0}
     .section-title{font-size:clamp(29px,4vw,38px);line-height:1.2;margin-bottom:15px;letter-spacing:-1px}
@@ -72,7 +72,7 @@
     footer{padding:24px 0;background:white;border-top:1px solid var(--border)}
     .footer-content{display:flex;align-items:center;justify-content:space-between;gap:15px}
     .footer-content p{color:var(--muted);font-size:12px}
-    .toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,20px);background:#302044;color:white;padding:10px 17px;border-radius:9px;font-size:13px;opacity:0;pointer-events:none;transition:.2s;z-index:200}
+    .toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,20px);background:#302044;color:white;padding:10px 17px;border-radius:9px;font-size:13px;opacity:0;pointer-events:none;transition:opacity .2s ease, transform .2s ease}
     .toast.show{opacity:1;transform:translate(-50%,0)}
     @media(max-width:800px){
       .hero-content>*{max-width:58%}
@@ -80,7 +80,7 @@
       .learning-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
       .menu-toggle{display:block}
       nav{position:relative}
-      .nav-links{display:none;position:absolute;top:100%;left:-5.5%;right:-5.5%;padding:12px 5%;background:white;border-bottom:1px solid var(--border);flex-direction:column;align-items:flex-start;gap:0}
+      .nav-links{display:none;position:absolute;top:100%;left:-5.5%;right:-5.5%;padding:12px 5%;background:white;border-bottom:1px solid var(--border);flex-direction:column;align-items:flex-start;gap:8px}
       .nav-links.open{display:flex}
       .nav-links a{padding:10px 0;width:100%}
       .shape-one{right:-170px;opacity:.4}
@@ -127,7 +127,7 @@
         <p class="student-note"><span></span>Student at KG College of Arts and Science</p>
       </div>
       <div class="profile-photo-frame">
-        <img src="assets/profile.jpeg" alt="Portrait of Shree Nisha" width="1214" height="1360">
+        <img src="assets/profile.svg" alt="Profile illustration of Shree Nisha" width="800" height="1000">
       </div>
     </section>
 
@@ -135,7 +135,7 @@
       <div class="container">
         <p class="eyebrow">A LITTLE ABOUT ME</p>
         <h2 class="section-title">About <span>Me</span></h2>
-        <p class="section-description">I am a B.Sc. Computer Science student at KG College of Arts and Science. I have basic knowledge of Python, C, C++, and Java, along with HTML, CSS, and JavaScript. I enjoy learning about technology and improving my programming skills.</p>
+        <p class="section-description">I am a B.Sc. Computer Science student at KG College of Arts and Science. I have basic knowledge of Python, C, C++, and Java, along with HTML, CSS, and JavaScript, and I am continuing to build my skills in web development and programming.</p>
       </div>
     </section>
 
